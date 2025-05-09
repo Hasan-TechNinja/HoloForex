@@ -13,14 +13,29 @@
             <ul></ul>
             <ul class="flex space-x-2">
                 <li class="mx-2">
-                    <a href="#">Home</a>
+                    <a href="{% url "home" %}">Home</a>
                 </li>
                 <li class="mx-2">
                     <a href="{% url "about" %}">About Us</a>
                 </li>
-                <li class="mx-2">
-                    <a href="#">Learning</a>
+                <li class="relative mx-2 group">
+                    <a href="#" class="inline-block px-4 hover:text-blue-600">Learning</a>
+                    <ul class="absolute hidden group-hover:block bg-white border mt-2 rounded shadow-md w-40 z-10">
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Learn to Trade</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Market to Trade</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Trading Platform</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Learn to Invest</a>
+                        </li>
+                    </ul>
                 </li>
+                
                 <li class="mx-2">
                     <a href="#">Brokers Review</a>
                 </li>
@@ -37,14 +52,14 @@
                     <a href="#">My Account</a>
                 </li>
                 <li>
-                    <a href="#">Logout</a>
+                    <a href="{% url "logout" %}">Logout</a>
                 </li>
                 {% else %}
                 <li>
-                    <a href="#">Login</a>
+                    <a href="{% url "login" %}">Login</a>
                 </li>
                 <li>
-                    <a href="#">Sing Up</a>
+                    <a href="{% url "singup" %}">Sing Up</a>
                 </li>
                 {% endif %}
             </ul>
