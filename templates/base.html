@@ -7,37 +7,46 @@
     {% tailwind_css %}
     <title>HoloForex{% block title %}{% endblock title %}</title>
 </head>
-<body>
+<body class="">
     <nav>
-        <div class="flex justify-around">
+        <div class="flex justify-around bg-white py-8 items-center">
             <ul></ul>
-            <ul>
-                <li>
+            <ul class="flex space-x-2">
+                <li class="mx-2">
                     <a href="#">Home</a>
                 </li>
-                <li>
-                    <a href="#">About Us</a>
+                <li class="mx-2">
+                    <a href="{% url "about" %}">About Us</a>
                 </li>
-                <li>
+                <li class="mx-2">
                     <a href="#">Learning</a>
                 </li>
-                <li>
+                <li class="mx-2">
                     <a href="#">Brokers Review</a>
                 </li>
-                <li>
-                    <a href="#">Blogs</a>
+                <li class="mx-2">
+                    <a href="{% url "blog" %}">Blogs</a>
                 </li>
-                <li>
+                <li class="mx-2">
                     <a href="#">Contact US</a>
                 </li>
             </ul>
-            <ul>
+            <ul class='flex space-x-2'>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="#">My Account</a>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+                {% else %}
                 <li>
                     <a href="#">Login</a>
                 </li>
                 <li>
                     <a href="#">Sing Up</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
