@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from . models import Blog
+from . models import Blog, Category
 from . forms import CommentModelForm
 
 # Create your views here.
@@ -18,9 +18,15 @@ class AboutView(View):
 class BlogView(View):
     def get(self, request):
         blog = Blog.objects.all()
+        latest_blog = Blog.objects.all().order_by('-id').first()
+        category = Category.objects.all()
+
         context = {
-            'blog':blog
+            'blog':blog,
+            'latest':latest_blog,
+            'category':category
         }
+
         return render(request, 'blog.html', context)
     
 
