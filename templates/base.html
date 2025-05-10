@@ -11,7 +11,7 @@
     <nav>
         <div class="flex justify-around bg-white py-8 items-center">
             <ul></ul>
-            <ul class="flex space-x-2">
+            <ul class="flex space-x-6">
                 <li class="mx-2">
                     <a href="{% url "home" %}">Home</a>
                 </li>
@@ -19,7 +19,7 @@
                     <a href="{% url "about" %}">About Us</a>
                 </li>
                 <li class="relative mx-2 group">
-                    <a href="#" class="inline-block px-4 hover:text-blue-600">Learning</a>
+                    <a href="#" class="inline-block hover:text-blue-600">Learning</a>
                     <ul class="absolute hidden group-hover:block bg-white border mt-2 rounded shadow-md w-40 z-10">
                         <li>
                             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Learn to Trade</a>
@@ -68,8 +68,55 @@
 
     {% block content %}{% endblock content %}
 
-    <footer>
-
+    <footer class="bg-blue-50 text-gray-700">
+        <div class="container mx-auto flex flex-wrap justify-between py-20 px-6">
+            <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                <img src="{% static 'image/Group-42.png' %}" alt="Logo" class="mb-4 w-32">
+                <p class="text-sm leading-relaxed">
+                    Connect with Holo Forex – Your Gateway to Seamless Trading! Have questions, need assistance, or want to explore partnership opportunities? Our dedicated support team is here to help. Contact us now for a personalized and responsive experience. Your journey with Holo Forex starts with a conversation. Reach out today!
+                </p>
+                <ul class="flex mt-4 space-x-4">
+                    <li><img src="{% static 'image/messenger.png' %}" alt="Messenger" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/telegram.png' %}" alt="Telegram" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/skype.png' %}" alt="Skype" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/viber.png' %}" alt="Viber" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10"></li>
+                </ul>
+            </div>
+    
+            <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                <h2 class="text-lg font-semibold mb-4">Explore</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-600">About</a></li>
+                </ul>
+            </div>
+    
+            <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                <h2 class="text-lg font-semibold mb-4">Support</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-600">Help & Support</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Terms & Conditions</a></li>
+                </ul>
+            </div>
+    
+            <div class="w-full md:w-1/4">
+                <h2 class="text-lg font-semibold mb-4">Contact</h2>
+                <ul class="space-y-2 text-sm">
+                    <li>Contact Us</li>
+                    <li>+44 7737 216631</li>
+                    <li><a href="mailto:info@holoforex.com" class="hover:text-blue-600">info@holoforex.com</a></li>
+                </ul>
+            </div>
+        </div>
+    
     </footer>
+    <div class="border-t border-blue-300 py-2 text-center text-sm text-white font-bold bg-blue-600">
+        {% comment %} &copy; 2025 Holo Forex. All rights reserved. {% endcomment %}
+        Copyright © HoloForex | All Rights reserved
+    </div>
+    
 </body>
 </html>
