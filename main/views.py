@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from . models import Blog
 
 # Create your views here.
 
@@ -15,7 +16,11 @@ class AboutView(View):
 
 class BlogView(View):
     def get(self, request):
-        return render(request, 'blog.html')
+        blog = Blog.objects.all()
+        context = {
+            'blog':blog
+        }
+        return render(request, 'blog.html', context)
     
 
 class BlogDetailsView(View):
