@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from . models import Blog
 
@@ -25,4 +25,9 @@ class BlogView(View):
 
 class BlogDetailsView(View):
     def get(self, request, pk):
-        return render(request, 'blogDetails.html')
+        blog = get_object_or_404(Blog, id = pk)
+        
+        context = {
+            'blog':blog
+        }
+        return render(request, 'blogDetails.html', context)
