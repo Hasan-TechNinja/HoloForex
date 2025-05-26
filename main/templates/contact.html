@@ -2,40 +2,67 @@
 {% load static %}
 {% block title %}Contact{% endblock title %}
 {% block content %}
-<div class="container mx-auto min-h-screen bg-green-50">
-    <div class="py-14 flex w-full justify-around">
+<div class="container mx-auto bg-green-50 px-6 py-12">
+    <div class="grid md:grid-cols-2 gap-12">
+
+        <!-- Services Section -->
         <div>
-            <h1 class="text-3xl font-bold">Our Service</h1>
-            <div class="flex justify-around start-0">
-                <img src="{% static "contact/buy-1.png" %}" alt="">
-                <p>Instant Trading</p>
+            <h1 class="text-3xl font-bold mb-6">Our Service</h1>
+            <div class="space-y-6">
+                <div class="flex items-center space-x-4">
+                    <img src="{% static 'contact/buy-1.png' %}" alt="" class="w-12 h-12">
+                    <p class="text-lg font-medium">Instant Trading</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <img src="{% static 'contact/gold-bars-1.png' %}" alt="" class="w-12 h-12">
+                    <p class="text-lg font-medium">Gold Prediction</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <img src="{% static 'contact/Vector-4.png' %}" alt="" class="w-12 h-12">
+                    <p class="text-lg font-medium">Native Consultancy</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <img src="{% static 'contact/group-chat-1.png' %}" alt="" class="w-12 h-12">
+                    <p class="text-lg font-medium">Group Chat</p>
+                </div>
             </div>
-            <div class="flex justify-around">
-                <img src="{% static "contact/gold-bars-1.png" %}" alt="">
-                <p>Gold Prediction</p>
-            </div>
-            <div class="flex justify-around">
-                <img src="{% static "contact/Vector-4.png" %}" alt="">
-                <p>Native Consultancy</p>
-            </div>
-            <div class="flex justify-around">
-                <img src="{% static "contact/group-chat-1.png" %}" alt="">
-                <p>Group Chat</p>
-            </div>
-            <div class="flex flex-col justify-center items-center mt-4">
-                <p class="text-xl font-bold">Quick Contact</p>
-                <ul class="flex mt-4 space-x-7">
-                    <li><img src="{% static 'image/messenger.png' %}" alt="Messenger" class="w-10 h-10"></li>
-                    <li><img src="{% static 'image/telegram.png' %}" alt="Telegram" class="w-10 h-10"></li>
-                    <li><img src="{% static 'image/skype.png' %}" alt="Skype" class="w-10 h-10"></li>
-                    <li><img src="{% static 'image/viber.png' %}" alt="Viber" class="w-10 h-10"></li>
-                    <li><img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10"></li>
+
+            <!-- Quick Contact -->
+            <div class="mt-10 text-center">
+                <p class="text-xl font-bold mb-4">Quick Contact</p>
+                <ul class="flex justify-center gap-6">
+                    <li><img src="{% static 'image/messenger.png' %}" alt="Messenger" class="w-10 h-10 hover:scale-110 transition"></li>
+                    <li><img src="{% static 'image/telegram.png' %}" alt="Telegram" class="w-10 h-10 hover:scale-110 transition"></li>
+                    <li><img src="{% static 'image/skype.png' %}" alt="Skype" class="w-10 h-10 hover:scale-110 transition"></li>
+                    <li><img src="{% static 'image/viber.png' %}" alt="Viber" class="w-10 h-10 hover:scale-110 transition"></li>
+                    <li><img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10 hover:scale-110 transition"></li>
                 </ul>
             </div>
         </div>
-        <div class="">
-            <h1 class="text-3xl font-bold">Contact Us</h1>
+
+        <!-- Contact Form Section -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h1 class="text-3xl font-bold mb-2">Contact Us</h1>
+            <p class="text-gray-700 mb-6">Tell us about your business</p>
+            <form method="post" class="space-y-5">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">
+                            {{ field.label_tag }}
+                        </label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <p class="text-red-500 text-sm mt-1">{{ field.errors }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition">
+                    Send Message
+                </button>
+            </form>
         </div>
+
     </div>
 </div>
 {% endblock content %}

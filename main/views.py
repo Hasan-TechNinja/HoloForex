@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from . models import Blog, Category
-from . forms import CommentModelForm
+from . forms import CommentModelForm, ContactModelForm
 
 # Create your views here.
 
@@ -59,4 +59,23 @@ class BlogDetailsView(View):
     
 class ContactView(View):
     def get(self, request):
-        return render(request, 'contact.html')
+        form = ContactModelForm()
+        context = {
+            'form':form,
+        }
+        return render(request, 'contact.html', context)
+
+    def post(self, request):
+        form = ContactModelForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.user = request.user
+            data.save()
+            return redirect('home')
+        else:
+            form = ContactModelForm()
+
+        context = {
+            'form':form,
+        }
+        return render(request, 'contact.html', context)
