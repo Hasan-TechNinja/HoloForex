@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+{% block content %}
+<div class="container mx-auto min-h-screen bg-green-50">
+    <div class="py-14 flex w-full justify-around">
+        <div>
+            <h1 class="text-3xl font-bold">Our Service</h1>
+            <div class="flex justify-around start-0">
+                <img src="{% static "contact/buy-1.png" %}" alt="">
+                <p>Instant Trading</p>
+            </div>
+            <div class="flex justify-around">
+                <img src="{% static "contact/gold-bars-1.png" %}" alt="">
+                <p>Gold Prediction</p>
+            </div>
+            <div class="flex justify-around">
+                <img src="{% static "contact/Vector-4.png" %}" alt="">
+                <p>Native Consultancy</p>
+            </div>
+            <div class="flex justify-around">
+                <img src="{% static "contact/group-chat-1.png" %}" alt="">
+                <p>Group Chat</p>
+            </div>
+            <div class="flex flex-col justify-center items-center mt-4">
+                <p class="text-xl font-bold">Quick Contact</p>
+                <ul class="flex mt-4 space-x-7">
+                    <li><img src="{% static 'image/messenger.png' %}" alt="Messenger" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/telegram.png' %}" alt="Telegram" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/skype.png' %}" alt="Skype" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/viber.png' %}" alt="Viber" class="w-10 h-10"></li>
+                    <li><img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp" class="w-10 h-10"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="">
+            <h1 class="text-3xl font-bold">Contact Us</h1>
+        </div>
+    </div>
+</div>
+{% endblock content %}

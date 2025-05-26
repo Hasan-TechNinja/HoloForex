@@ -56,3 +56,7 @@ class BlogDetailsView(View):
             'blog':blog
         }
         return render(request, 'blogDetails.html', context)
+    
+class ContactView(View):
+    def get(self, request):
+        return render(request, 'contact.html')
